@@ -95,6 +95,16 @@ else
 fi
 echo ""
 
+# Install nvtop (GPU monitoring tool)
+echo "=== Installing nvtop ==="
+if command -v nvtop &> /dev/null; then
+    echo "nvtop is already installed: $(nvtop --version)"
+else
+    $INSTALL_CMD nvtop
+    echo "nvtop installed"
+fi
+echo ""
+
 echo "=== Installation Complete! ==="
 echo ""
 echo "Installed versions:"
