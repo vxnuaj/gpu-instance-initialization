@@ -80,8 +80,7 @@ echo "=== Installing opencode ==="
 if command -v opencode &> /dev/null; then
     echo "opencode is already installed"
 else
-    # opencode is typically installed via npm
-    npm install -g opencode
+    npm install -g opencode-ai
     echo "opencode installed"
 fi
 echo ""
@@ -91,14 +90,8 @@ echo "=== Installing kilocode ==="
 if command -v kilo &> /dev/null || command -v kilocode &> /dev/null; then
     echo "kilocode is already installed"
 else
-    # Try to install via npm first, otherwise use the install script
-    if npm install -g kilocode 2>/dev/null; then
-        echo "kilocode installed via npm"
-    else
-        # Alternative: use the install script from kilo.ai
-        curl -fsSL https://kilo.ai/install.sh | sh
-        echo "kilocode installed"
-    fi
+    npm install -g @kilocode/cli
+    echo "kilocode installed"
 fi
 echo ""
 
