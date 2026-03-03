@@ -8,20 +8,20 @@ echo ""
 # Detect package manager
 if command -v apt &> /dev/null; then
     PKG_MANAGER="apt"
-    UPDATE_CMD="sudo apt update"
-    INSTALL_CMD="sudo apt install -y"
+    UPDATE_CMD="apt update"
+    INSTALL_CMD="apt install -y"
 elif command -v yum &> /dev/null; then
     PKG_MANAGER="yum"
-    UPDATE_CMD="sudo yum update -y"
-    INSTALL_CMD="sudo yum install -y"
+    UPDATE_CMD="yum update -y"
+    INSTALL_CMD="yum install -y"
 elif command -v dnf &> /dev/null; then
     PKG_MANAGER="dnf"
-    UPDATE_CMD="sudo dnf update -y"
-    INSTALL_CMD="sudo dnf install -y"
+    UPDATE_CMD="dnf update -y"
+    INSTALL_CMD="dnf install -y"
 elif command -v pacman &> /dev/null; then
     PKG_MANAGER="pacman"
-    UPDATE_CMD="sudo pacman -Sy"
-    INSTALL_CMD="sudo pacman -S --noconfirm"
+    UPDATE_CMD="pacman -Sy"
+    INSTALL_CMD="pacman -S --noconfirm"
 else
     echo "Unsupported package manager. Exiting."
     exit 1
@@ -46,7 +46,7 @@ if command -v node &> /dev/null; then
     echo "Node.js is already installed: $(node --version)"
 else
     # Use NodeSource for latest LTS version
-    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
     $INSTALL_CMD nodejs
     echo "Node.js installed: $(node --version)"
     echo "npm installed: $(npm --version)"
